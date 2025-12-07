@@ -142,10 +142,11 @@ button.primary:active{transform:scale(0.9); transition:0.1s}
 
 <!-- TELA DE BOAS-VINDAS -->
 <div id="welcomeScreen" style="position:fixed; inset:0; background:#ffeb8a; display:flex; justify-content:center; align-items:center; flex-direction:column; z-index:9999; transition: opacity 1.2s ease;">
-  <h2 style="font-family:'Quicksand', sans-serif; color:#a07300; font-size:1rem; margin-bottom:20px;">💛 Você tem uma mensagem especial 💛</h2>
-  <button id="openGiftBtn" style="padding:14px 26px; background:#ffd34f; border:none; border-radius:14px; font-size:1.1rem; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.25); font-family:'Quicksand', sans-serif;">Abra para receber 🎁</button>
+  <h2 id="welcomeText" style="font-family:'Quicksand', sans-serif; color:#a07300; font-size:1rem; margin-bottom:20px;">💛 Você tem uma mensagem especial 💛</h2>
+  <button id="openGiftBtn" disabled style="padding:14px 26px; background:#ffd34f; border:none; border-radius:14px; font-size:1.1rem; cursor:not-allowed; box-shadow:0 4px 12px rgba(0,0,0,0.25); font-family:'Quicksand', sans-serif; transition: background 0.3s ease, cursor 0.3s ease;">
+    Aguarde... (Calculando)
+  </button>
 </div>
-
 <button id="themeToggle">Mudar Tema ❤️</button>
   <div class="card">
     <h1>Feliz 1 Ano, meu amor ❤️</h1>
@@ -207,6 +208,72 @@ Oiii Mikaelly, minha princesa, eu quero comemorar agora nosso primeiro ano de na
   <script>
     // Definir funções **antes** de qualquer possível chamada inline ou listener
     (function(){
+    // ... dentro da sua IIFE principal (function(){ ...
+
+      // FUNÇÃO PRINCIPAL: Contagem Regressiva para um Horário Específico (23:59)
+      function startCountdownToTime() {
+        const btn = document.getElementById('openGiftBtn');
+
+        function updateCountdown() {
+          const now = new Date();
+          
+          // Define a data/hora final (23:59:00 de hoje)
+          const finalTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 0);
+          
+          // Se já passou das 23:59, a contagem deve terminar. 
+          // (No seu caso de 1 ano, talvez o objetivo seja só liberar o presente hoje mesmo)
+          if (now.getTime() > finalTime.getTime()) {
+            clearInterval(interval);
+            btn.textContent = 'Abra para receber 🎁';
+            btn.disabled = false;
+            btn.style.cursor = 'pointer';
+            btn.style.background = '#ffd34f';
+            return;
+          }
+
+          const distance = finalTime.getTime() - now.getTime();
+
+          // Cálculos de tempo (Horas, Minutos, Segundos)
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          // Formatação para garantir dois dígitos (ex: 05, 12)
+          const displayTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+          
+          btn.textContent = `Aguarde... (${displayTime})`;
+          
+          // Se o tempo for zero (ou quase zero), libera o botão
+          if (distance <= 1000) {
+            clearInterval(interval);
+            btn.textContent = 'Abra para receber 🎁';
+            btn.disabled = false;
+            btn.style.cursor = 'pointer';
+            btn.style.background = '#ffd34f';
+          }
+        }
+        
+        // Inicia o intervalo de 1 segundo
+        const interval = setInterval(updateCountdown, 1000);
+        updateCountdown(); // Chama imediatamente para evitar o delay inicial
+      }
+
+
+      // Listener para o botão de abrir o presente
+      const welcome = document.getElementById('welcomeScreen');
+      const giftBtn = document.getElementById('openGiftBtn');
+      
+      if(giftBtn){
+        giftBtn.addEventListener('click', () => {
+          welcome.style.opacity = '0';
+          setTimeout(() => { welcome.style.display = 'none'; }, 1200);
+        });
+        
+        // Inicia a contagem regressiva para 23:59
+        startCountdownToTime(); 
+      }
+      
+// ... final da sua IIFE principal ...
       function openCard(){
         const modal = document.getElementById('cardModal');
         if(modal){ modal.style.display = 'flex'; modal.setAttribute('aria-hidden','false'); }
