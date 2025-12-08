@@ -124,13 +124,108 @@ button#themeToggle{ position:fixed; top:20px; right:20px; padding:10px 16px; bac
 h1{animation:heartBeat 2.4s infinite ease-in-out}
 @keyframes heartBeat{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
 /* Botão pop */
-button.primary:active{transform:scale(0.9); transition:0.1s}
+    button.primary:active{transform:scale(0.9); transition:0.1s}
 /* Glow dourado no card */
 .card{box-shadow:0 0 25px rgba(255,215,100,0.45)}
 /* Parallax nos girassóis */
 .floating-sunflowers{transform:translateY(var(--scroll-y)); transition:transform 0.2s linear}
 /* Moldura brilhante foto */
 .polaroid-glow{box-shadow:0 0 35px 12px rgba(255,215,100,0.95)!important; filter:brightness(1.25);}
+
+/* Animações melhoradas */
+.text-box {
+  animation: slideInUp 0.8s ease 0.3s backwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Timeline com fade-in */
+.timeline {
+  animation: slideInUp 0.8s ease 0.6s backwards;
+}
+
+/* Foto com efeito de rotação suave */
+.photo-frame {
+  animation: gentleRotate 6s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes gentleRotate {
+  0%, 100% { transform: rotateY(0deg) rotateX(0deg); }
+  50% { transform: rotateY(2deg) rotateX(-1deg); }
+}
+
+/* Corações decorativos animados */
+.heart-decoration {
+  display: inline-block;
+  animation: heartFloat 3s ease-in-out infinite;
+  margin: 0 8px;
+}
+
+@keyframes heartFloat {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-12px); opacity: 0.8; }
+}
+
+/* Efeito de glow no botão */
+button.primary:hover {
+  box-shadow: 0 6px 16px rgba(255, 215, 100, 0.4);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+/* Divisor com decoração */
+.divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--soft), transparent);
+  margin: 20px 0;
+  animation: expandWidth 0.8s ease 0.5s backwards;
+}
+
+@keyframes expandWidth {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* Confete / estrelas decorativas */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: var(--soft);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Número com pulsação especial */
+.special-number {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #d94f70;
+  animation: numberPulse 2s ease-in-out infinite;
+}
+
+@keyframes numberPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Courgette&display=swap" rel="stylesheet">
 </head>
@@ -146,9 +241,16 @@ button.primary:active{transform:scale(0.9); transition:0.1s}
 <button id="themeToggle">Mudar Tema ❤️</button>
   <div class="card">
     <h1>Feliz 1 Ano, meu amor ❤️</h1>
+    
+    <!-- Decoração superior -->
+    <div style="text-align: center; margin-bottom: 20px; letter-spacing: 12px; font-size: 1.4rem;">
+      <span class="heart-decoration">💛</span>
+      <span class="heart-decoration" style="animation-delay: 0.3s;">💛</span>
+      <span class="heart-decoration" style="animation-delay: 0.6s;">💛</span>
+    </div>
 
     <!-- Texto principal (o seu texto) -->
-    <div style="background: #fffaeb; border-radius: 18px; padding: 24px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 2px solid #f3e4b2;">
+    <div class="text-box" style="background: #fffaeb; border-radius: 18px; padding: 24px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 2px solid #f3e4b2;">
     <p>
 Oiii Mikaelly, minha princesa, eu quero comemorar agora nosso primeiro ano de namoro, o primeiro de muitos, neném. Eu queria dizer que você me fez um cara tão feliz, tão grato por estar vivo junto contigo, que me faz pensar em casar com você todos os dias, e isso deixou de ser apenas um sonho, e se tornou meu objetivo de vida. Tudo o que eu faço, que falo, é pensando no meu objetivo, que é você, casar com a minha garota dos sonhos, minha princesa, minha lindinha, minha neném ❤️. Por agora infelizmente eu não consigo te presentear com algo físico, por mais que eu queira muito, até porque se eu pudesse eu te daria o mundo inteiro somente pra você, então peço desculpas por isso e espero que você goste dessa surpresa, mas abraça seu macaquinho que eu te dei com meu amor nele 🥺. Nunca esqueça que eu sempre estarei aqui com você, minha neneca, eu me lembro como se fosse ontem da gente conversando 1 ano atrás, eu te pedindo em namoro todo tímido e bobinho, você ter aceitado isso foi a melhor coisa que já aconteceu na minha vida 💗☺️. Eu sou tão orgulho da gente estar juntos depois de todo esse tempo, passando por tanta coisa, a gente esta seguindo firme, mesmo com desavenças as vezes, mas estamos sempre juntinhos um com o outro, e isso me assegura, me deixa alegre, com mais vontade de viver a vida contigo, com nossos futuros filhos. Você é a garota mais perfeita que eu já conheci, eu genuinamente te amo muuuiiiito, minha saguizinha 💗😌. Meu próximo passo eu espero que seja te ver e te dar um abraço tão forte, te encher de beijinhos chorando de alegria, e gratidão por estar contigo, então eu não vejo a hora de poder fazer isso, até lá, estaremos bem aqui juntinhos, fazendo nossas coisinhas. E agora eu quero te dedicar uma música que sempre me faz lembrar de você, pelo meu amor que eu tenho por você, eu te amo, minha garotaaaaaaa!!
     </p>
@@ -160,20 +262,24 @@ Oiii Mikaelly, minha princesa, eu quero comemorar agora nosso primeiro ano de na
     <!-- Spotify embed -->
     <iframe style="border-radius:12px; margin-bottom:18px;" src="https://open.spotify.com/embed/track/0d2Ik5rp9Icd1oqn4178x2?utm_source=generator" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
-    <!-- Linha do tempo -->
+    <!-- Divisor decorativo -->
+    <div class="divider"></div>
     <div class="timeline">
       <h2 style="text-align:center; color:var(--accent); margin-bottom:12px">Nossa Linha do Tempo 💛</h2>
-      <ul style="list-style:none; padding:0; font-size:1.02rem; line-height:1.6; margin:0;">
-        <li><strong>📅 21/10/2024:</strong> A gente se conheceu.</li>
-        <li><strong>📸 Momento marcante:</strong> Quando eu te vi pela primeira vez, quando você me chamou de amor pela primeira vez.</li>
-        <li><strong>💛 08/12/2024:</strong> Começamos a namorar.</li>
+      <ul style="list-style:none; padding:0; font-size:1.02rem; line-height:2.2; margin:0;">
+        <li style="animation: slideInUp 0.8s ease 0.7s backwards;"><span style="font-size:1.6rem;">📅</span> <strong>21/10/2024:</strong> A gente se conheceu.</li>
+        <li style="animation: slideInUp 0.8s ease 0.8s backwards;"><span style="font-size:1.6rem;">📸</span> <strong>Momento marcante:</strong> Quando eu te vi pela primeira vez, quando você me chamou de amor pela primeira vez.</li>
+        <li style="animation: slideInUp 0.8s ease 0.9s backwards;"><span style="font-size:1.6rem;">💛</span> <strong>08/12/2024:</strong> Começamos a namorar. <span class="special-number">1️⃣</span></li>
       </ul>
     </div>
 
     <div class="heart" style="margin-top:16px;">💖</div>
 
+    <!-- Divisor decorativo -->
+    <div class="divider" style="animation-delay: 1s;"></div>
+
     <!-- Polaroid Assinatura -->
-<div style="width: 220px; margin: 30px auto 10px auto; background: #fffdf6; padding: 14px; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.15); border: 2px solid #f3e4b2; text-align:center; font-family:'Courgette', cursive;">
+<div class="photo-frame" style="width: 220px; margin: 30px auto 10px auto; background: #fffdf6; padding: 14px; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.15); border: 2px solid #f3e4b2; text-align:center; font-family:'Courgette', cursive; animation: slideInUp 0.8s ease 1s backwards;">
   <img src="https://i.imgur.com/fk9aHQ8.jpeg" style="width:100%; height:180px; object-fit:cover; border-radius:8px;" alt="Foto dela" />
   <p id="assinatura" style="
   margin-top:10px;
@@ -187,8 +293,15 @@ Oiii Mikaelly, minha princesa, eu quero comemorar agora nosso primeiro ano de na
 ">— Com amor, Breno 💛</p>
 </div>
 
+<!-- Decoração inferior -->
+<div style="text-align: center; margin: 20px 0; letter-spacing: 12px; font-size: 1.2rem; animation: slideInUp 0.8s ease 1.2s backwards;">
+  <span class="heart-decoration" style="animation-delay: 1.2s;">🌻</span>
+  <span class="heart-decoration" style="animation-delay: 1.5s;">💛</span>
+  <span class="heart-decoration" style="animation-delay: 1.8s;">🌻</span>
+</div>
+
 <!-- Botão Abraço (final da página) -->
-    <button id="hugBtn" class="primary" style="display:block; margin:30px auto 0; text-align:center;">🤗 Clique se quiser um abraço 🤗</button>
+    <button id="hugBtn" class="primary" style="display:block; margin:30px auto 0; text-align:center; animation: slideInUp 0.8s ease 1.4s backwards;">🤗 Clique se quiser um abraço 🤗</button>
 
     <div id="hugEmoji" style="display:none; font-size:4rem; text-align:center; margin-top:18px; animation:pulse 1.5s infinite;">🤗</div>
 
@@ -284,6 +397,7 @@ Oiii Mikaelly, minha princesa, eu quero comemorar agora nosso primeiro ano de na
         if(hug){
           hug.style.display = 'block';
           hug.animate([{ transform: 'scale(0.6)' }, { transform: 'scale(1.15)' }, { transform: 'scale(1)' }], { duration: 600, easing: 'ease-out' });
+          triggerCelebration();
         }
       }
 
@@ -327,6 +441,26 @@ setInterval(()=>{
   if(img) img.classList.add('polaroid-glow');
   setTimeout(()=>{if(img) img.classList.remove('polaroid-glow')},1200)
 },4000);
+
+// 9 — Efeito confete/celebração
+function triggerCelebration() {
+  for(let i = 0; i < 15; i++) {
+    let confetti = document.createElement('div');
+    confetti.className = 'confetti';
+    confetti.style.left = Math.random() * 100 + 'vw';
+    confetti.style.top = '-10px';
+    confetti.style.background = ['#d94f70', '#ffd86b', '#FFD700', '#FF69B4'][Math.floor(Math.random() * 4)];
+    confetti.style.animationDuration = (2 + Math.random() * 2) + 's';
+    confetti.style.animationDelay = (Math.random() * 0.5) + 's';
+    document.body.appendChild(confetti);
+    setTimeout(() => confetti.remove(), 5000);
+  }
+}
+
+// 10 — Efeito de celebração ao carregar
+window.addEventListener('load', () => {
+  setTimeout(() => triggerCelebration(), 2000);
+});
 </script>
 <script>
 // FUNÇÃO PARA SUMIR A TELA DE BOAS-VINDAS
